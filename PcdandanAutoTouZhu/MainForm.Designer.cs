@@ -168,7 +168,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(343, 196);
+            this.ClientSize = new System.Drawing.Size(340, 188);
             this.Controls.Add(this.spinEdit_endCode);
             this.Controls.Add(this.spinEdit_startCode);
             this.Controls.Add(this.labelControl2);
