@@ -40,7 +40,6 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.button_shoudong_byxml = new DevExpress.XtraEditors.SimpleButton();
             this.button_shoudong_zidingyi = new DevExpress.XtraEditors.SimpleButton();
-            this.spinEdit_dandanNumber = new DevExpress.XtraEditors.SpinEdit();
             this.labelControl_touzhuNumber = new DevExpress.XtraEditors.LabelControl();
             this.labelControl_startCode = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
@@ -57,7 +56,7 @@
             this.Button_openChrome = new DevExpress.XtraEditors.SimpleButton();
             this.panelControl_N余 = new DevExpress.XtraEditors.PanelControl();
             this.panelControl_startEnd = new DevExpress.XtraEditors.PanelControl();
-            ((System.ComponentModel.ISupportInitialize)(this.spinEdit_dandanNumber.Properties)).BeginInit();
+            this.comboBoxEdit1 = new DevExpress.XtraEditors.ComboBoxEdit();
             ((System.ComponentModel.ISupportInitialize)(this.spinEdit_startCode.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinEdit_endCode.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit_topMost.Properties)).BeginInit();
@@ -69,6 +68,7 @@
             this.panelControl_N余.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl_startEnd)).BeginInit();
             this.panelControl_startEnd.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // button_startTouZhu
@@ -115,34 +115,13 @@
             this.button_shoudong_zidingyi.Text = "手动投注(根据左边)";
             this.button_shoudong_zidingyi.Click += new System.EventHandler(this.button_shoudong_zidingyi_Click);
             // 
-            // spinEdit_dandanNumber
-            // 
-            this.spinEdit_dandanNumber.EditValue = new decimal(new int[] {
-            50000,
-            0,
-            0,
-            0});
-            this.spinEdit_dandanNumber.Location = new System.Drawing.Point(11, 65);
-            this.spinEdit_dandanNumber.Name = "spinEdit_dandanNumber";
-            this.spinEdit_dandanNumber.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.spinEdit_dandanNumber.Properties.Mask.EditMask = "\\d{1,9}";
-            this.spinEdit_dandanNumber.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-            this.spinEdit_dandanNumber.Properties.MaxValue = new decimal(new int[] {
-            100000000,
-            0,
-            0,
-            0});
-            this.spinEdit_dandanNumber.Size = new System.Drawing.Size(147, 20);
-            this.spinEdit_dandanNumber.TabIndex = 5;
-            // 
             // labelControl_touzhuNumber
             // 
-            this.labelControl_touzhuNumber.Location = new System.Drawing.Point(31, 42);
+            this.labelControl_touzhuNumber.Location = new System.Drawing.Point(11, 45);
             this.labelControl_touzhuNumber.Name = "labelControl_touzhuNumber";
-            this.labelControl_touzhuNumber.Size = new System.Drawing.Size(48, 14);
+            this.labelControl_touzhuNumber.Size = new System.Drawing.Size(52, 14);
             this.labelControl_touzhuNumber.TabIndex = 6;
-            this.labelControl_touzhuNumber.Text = "投注数量";
+            this.labelControl_touzhuNumber.Text = "投注数量:";
             // 
             // labelControl_startCode
             // 
@@ -204,7 +183,7 @@
             // 
             // checkEdit_topMost
             // 
-            this.checkEdit_topMost.Location = new System.Drawing.Point(164, 40);
+            this.checkEdit_topMost.Location = new System.Drawing.Point(227, 40);
             this.checkEdit_topMost.Name = "checkEdit_topMost";
             this.checkEdit_topMost.Properties.Caption = "总在最上";
             this.checkEdit_topMost.Size = new System.Drawing.Size(75, 19);
@@ -242,7 +221,7 @@
             // comboBoxEdit_N余
             // 
             this.comboBoxEdit_N余.EditValue = "5";
-            this.comboBoxEdit_N余.Location = new System.Drawing.Point(15, 13);
+            this.comboBoxEdit_N余.Location = new System.Drawing.Point(12, 20);
             this.comboBoxEdit_N余.Name = "comboBoxEdit_N余";
             this.comboBoxEdit_N余.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -260,7 +239,7 @@
             // comboBoxEdit_余N
             // 
             this.comboBoxEdit_余N.EditValue = "0";
-            this.comboBoxEdit_余N.Location = new System.Drawing.Point(87, 13);
+            this.comboBoxEdit_余N.Location = new System.Drawing.Point(84, 20);
             this.comboBoxEdit_余N.Name = "comboBoxEdit_余N";
             this.comboBoxEdit_余N.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -276,7 +255,7 @@
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(66, 16);
+            this.labelControl1.Location = new System.Drawing.Point(63, 23);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(12, 14);
             this.labelControl1.TabIndex = 17;
@@ -306,7 +285,7 @@
             this.panelControl_N余.Controls.Add(this.labelControl1);
             this.panelControl_N余.Location = new System.Drawing.Point(11, 126);
             this.panelControl_N余.Name = "panelControl_N余";
-            this.panelControl_N余.Size = new System.Drawing.Size(147, 44);
+            this.panelControl_N余.Size = new System.Drawing.Size(147, 56);
             this.panelControl_N余.TabIndex = 20;
             // 
             // panelControl_startEnd
@@ -320,12 +299,34 @@
             this.panelControl_startEnd.Size = new System.Drawing.Size(147, 56);
             this.panelControl_startEnd.TabIndex = 21;
             // 
+            // comboBoxEdit1
+            // 
+            this.comboBoxEdit1.EditValue = "50000";
+            this.comboBoxEdit1.Location = new System.Drawing.Point(12, 65);
+            this.comboBoxEdit1.Name = "comboBoxEdit1";
+            this.comboBoxEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.comboBoxEdit1.Properties.DropDownRows = 10;
+            this.comboBoxEdit1.Properties.Items.AddRange(new object[] {
+            "50000",
+            "60000",
+            "84000",
+            "134400",
+            "241920",
+            "483840",
+            "1064448",
+            "2554675",
+            "6642156",
+            "18598035"});
+            this.comboBoxEdit1.Size = new System.Drawing.Size(146, 20);
+            this.comboBoxEdit1.TabIndex = 22;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(312, 236);
-            this.Controls.Add(this.panelControl_startEnd);
+            this.Controls.Add(this.comboBoxEdit1);
             this.Controls.Add(this.panelControl_N余);
             this.Controls.Add(this.Button_openChrome);
             this.Controls.Add(this.labelControl3);
@@ -334,10 +335,10 @@
             this.Controls.Add(this.button_moshibianji);
             this.Controls.Add(this.checkEdit_topMost);
             this.Controls.Add(this.labelControl_touzhuNumber);
-            this.Controls.Add(this.spinEdit_dandanNumber);
             this.Controls.Add(this.button_shoudong_zidingyi);
             this.Controls.Add(this.button_shoudong_byxml);
             this.Controls.Add(this.button_startTouZhu);
+            this.Controls.Add(this.panelControl_startEnd);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -345,7 +346,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "自动投注(chrome)";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
-            ((System.ComponentModel.ISupportInitialize)(this.spinEdit_dandanNumber.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinEdit_startCode.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinEdit_endCode.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit_topMost.Properties)).EndInit();
@@ -359,6 +359,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl_startEnd)).EndInit();
             this.panelControl_startEnd.ResumeLayout(false);
             this.panelControl_startEnd.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -371,7 +372,6 @@
         private System.Windows.Forms.Timer timer1;
         private DevExpress.XtraEditors.SimpleButton button_shoudong_byxml;
         private DevExpress.XtraEditors.SimpleButton button_shoudong_zidingyi;
-        private DevExpress.XtraEditors.SpinEdit spinEdit_dandanNumber;
         private DevExpress.XtraEditors.LabelControl labelControl_touzhuNumber;
         private DevExpress.XtraEditors.LabelControl labelControl_startCode;
         private DevExpress.XtraEditors.LabelControl labelControl2;
@@ -388,6 +388,7 @@
         private DevExpress.XtraEditors.SimpleButton Button_openChrome;
         private DevExpress.XtraEditors.PanelControl panelControl_N余;
         private DevExpress.XtraEditors.PanelControl panelControl_startEnd;
+        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit1;
     }
 }
 

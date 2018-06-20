@@ -30,6 +30,7 @@ namespace PcdandanAutoTouZhu
             InitializeComponent();
             // 计时器间隔
             timer1.Interval = Properties.Settings.Default.jiange;
+            radioGroup1.SelectedIndex = 1;
         }
         // 开始投注
         private void button_startTouZhu_Click(object sender, EventArgs e)
@@ -140,6 +141,12 @@ namespace PcdandanAutoTouZhu
                 XtraMessageBox.Show("请点击打开chrome浏览器,并登陆");
                 return;
             }
+
+            DialogResult dr = XtraMessageBox.Show("确认投注吗?", "确认", MessageBoxButtons.OKCancel);
+            if (dr == DialogResult.Cancel)
+            {
+                return;
+            }
             TouZhu(TouzhuType._根据xml, null);
         }
 
@@ -149,6 +156,12 @@ namespace PcdandanAutoTouZhu
             if (!isChromeOpen())
             {
                 XtraMessageBox.Show("请点击打开chrome浏览器,并登陆");
+                return;
+            }
+
+            DialogResult dr = XtraMessageBox.Show("确认投注吗?", "确认", MessageBoxButtons.OKCancel);
+            if (dr == DialogResult.Cancel)
+            {
                 return;
             }
             Util util = new Util();
@@ -216,7 +229,7 @@ namespace PcdandanAutoTouZhu
                 {
                     list.Add(i);
                 }
-                double[] touzhu = util._计算投注数量(int.Parse(spinEdit_dandanNumber.Value.ToString()), list);
+                double[] touzhu = util._计算投注数量(int.Parse(comboBoxEdit1.Text), list);
                 return touzhu;
 
             }
@@ -233,7 +246,7 @@ namespace PcdandanAutoTouZhu
                         list.Add(i);
                     }
                 }
-                double[] touzhu = util._计算投注数量(int.Parse(spinEdit_dandanNumber.Value.ToString()), list);
+                double[] touzhu = util._计算投注数量(int.Parse(comboBoxEdit1.Text), list);
                 return touzhu;
             }
             return null;
@@ -248,6 +261,17 @@ namespace PcdandanAutoTouZhu
                 comboBoxEdit_余N.Properties.Items.Add(i);
             }
             comboBoxEdit_余N.SelectedIndex = 0;
+            // 如果是5
+            int start;
+            start = 50000;
+            comboBoxEdit1.Properties.Items.Clear();
+            for (int i = 1; i <= 10; i++)
+            {
+                comboBoxEdit1.Properties.Items.Add(start);
+                start = int.Parse((Math.Floor(start * (1 + i * 0.2))).ToString());
+
+            }
+
         }
 
         // 关闭窗口
